@@ -153,7 +153,7 @@ class Salesforce:
             # If the user provides the full url (as returned by the OAuth
             # interface for example) extract the hostname (which we rely on)
             if instance_url is not None:
-                self.sf_instance = urlparse(instance_url).hostname
+                self.sf_instance = urlparse(instance_url).hostname or instance_url
                 port = urlparse(instance_url).port
                 if port not in (None, 443):
                     self.sf_instance += ':' + str(port)
